@@ -13,7 +13,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
 
     public Job() {
         this.id = nextId;
@@ -29,7 +28,7 @@ public class Job {
        location = aLocation;
        positionType = aPositionType;
        coreCompetency = aCoreCompetency;
-       nextId++;
+       //nextId++;
 
     }
 
@@ -91,5 +90,30 @@ public class Job {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        String dan = "Data not available";
+        if (name == null || name == "") {
+            name = dan;
+        }
+        if (employer == null || employer.getValue() == "") {
+            employer.setValue(dan);
+        }
+        if(location == null || location.getValue() ==""){
+            location.setValue(dan);
+        }
+        if (positionType == null || positionType.getValue() ==""){
+            positionType.setValue(dan);
+        }
+        if(coreCompetency == null || coreCompetency.getValue() == ""){
+            coreCompetency.setValue(dan);
+        }
+        return "\n" + "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
+    }
 }
 
